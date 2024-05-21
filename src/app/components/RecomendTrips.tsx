@@ -1,10 +1,10 @@
-import { Trip } from "@prisma/client";
+import { Product } from "@prisma/client";
 import TripItem from "./TripItem";
 import { prisma } from "@/lib/prisma";
 
 const getTrips = async () => {
-  const trips = await prisma.trip.findMany({});
-  return trips;
+  const Product = await prisma.product.findMany({});
+  return Product;
 };
 
 const RecomendTrips = async () => {
@@ -21,8 +21,8 @@ const RecomendTrips = async () => {
       </div>
 
       <div className="flex flex-col items-center mt-5 gap-5 lg:mt-12 lg:flex-row flex-wrap lg:justify-center lg:gap-10 lg:items-center">
-        {data.map((trip: Trip) => (
-          <TripItem key={trip.id} trip={trip} />
+        {data.map((product: Product) => (
+          <TripItem key={product.id} product={product} />
         ))}
       </div>
     </div>

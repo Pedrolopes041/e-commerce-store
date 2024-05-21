@@ -1,15 +1,14 @@
 import Button from "@/components/Button";
-import { Trip } from "@prisma/client";
+import { Product } from "@prisma/client";
 import Image from "next/image";
-import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import { toast } from "react-toastify";
 
 interface TripItemProps {
-  trip: Trip;
+  product: Product;
 }
 
-const TripItem = ({ trip }: TripItemProps) => {
+const TripItem = ({ product }: TripItemProps) => {
   /*
   const handleBuyClick = async () => {
     const res = await fetch("/api/trips/reservation", {
@@ -42,28 +41,26 @@ const TripItem = ({ trip }: TripItemProps) => {
   */
 
   return (
-    <Link href={`/trips/${trip.id}`}>
-      <div className="flex flex-col">
-        <div className="relative h-[280px] w-[280px]">
-          <Image
-            src={trip.coverImage}
-            fill
-            className="rounded-lg shadow-md"
-            alt={trip.name}
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-
-        <h3 className="text-primaryDarker font-medium text-sm mt-2">
-          {trip.name}
-        </h3>
-        <div className="flex items-center gap-1 my-1 ">
-          <ReactCountryFlag svg countryCode={trip.countryCode} />
-          <p className="text-xs text-grayPrimary">{trip.location}</p>
-        </div>
-        <Button variant="primary">Comprar</Button>
+    <div className="flex flex-col">
+      <div className="relative h-[280px] w-[280px]">
+        <Image
+          src={product.coverImage}
+          fill
+          className="rounded-lg shadow-md"
+          alt={product.name}
+          style={{ objectFit: "cover" }}
+        />
       </div>
-    </Link>
+
+      <h3 className="text-primaryDarker font-medium text-sm mt-2">
+        {product.name}
+      </h3>
+      <div className="flex items-center gap-1 my-1 ">
+        <ReactCountryFlag svg countryCode={product.countryCode} />
+        <p className="text-xs text-grayPrimary">{product.location}</p>
+      </div>
+      <Button variant="primary">Comprar</Button>
+    </div>
   );
 };
 
