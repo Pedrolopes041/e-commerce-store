@@ -3,7 +3,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.trip.createMany({
+  await prisma.product.createMany({
     data: [
       {
         name: "Logitech G305 Lightspeed",
