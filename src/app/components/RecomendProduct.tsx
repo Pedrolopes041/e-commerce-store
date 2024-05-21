@@ -1,13 +1,13 @@
 import { Product } from "@prisma/client";
-import TripItem from "./TripItem";
 import { prisma } from "@/lib/prisma";
+import ProductItem from "./ProductItem";
 
 const getTrips = async () => {
   const Product = await prisma.product.findMany({});
   return Product;
 };
 
-const RecomendTrips = async () => {
+const RecomendProduct = async () => {
   const data = await getTrips();
 
   return (
@@ -22,11 +22,11 @@ const RecomendTrips = async () => {
 
       <div className="flex flex-col items-center mt-5 gap-5 lg:mt-12 lg:flex-row flex-wrap lg:justify-center lg:gap-10 lg:items-center">
         {data.map((product: Product) => (
-          <TripItem key={product.id} product={product} />
+          <ProductItem key={product.id} product={product} />
         ))}
       </div>
     </div>
   );
 };
 
-export default RecomendTrips;
+export default RecomendProduct;

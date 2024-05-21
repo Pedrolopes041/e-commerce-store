@@ -4,11 +4,11 @@ import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
 import { toast } from "react-toastify";
 
-interface TripItemProps {
+interface ProductItemProps {
   product: Product;
 }
 
-const TripItem = ({ product }: TripItemProps) => {
+const ProductItem = ({ product }: ProductItemProps) => {
   /*
   const handleBuyClick = async () => {
     const res = await fetch("/api/trips/reservation", {
@@ -64,4 +64,4 @@ const TripItem = ({ product }: TripItemProps) => {
   );
 };
 
-export default TripItem;
+export default ProductItem;
