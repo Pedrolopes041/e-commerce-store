@@ -54,7 +54,7 @@ const Header = () => {
               >
                 Logout
               </button>
-              <Link href="/my-trips">
+              <Link href="/my-products">
                 <button className="text-primary pt-2 text-sm font-semibold">
                   Minhas compras
                 </button>
