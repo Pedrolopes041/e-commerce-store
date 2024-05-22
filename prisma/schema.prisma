@@ -22,9 +22,9 @@ model Product {
 
 model ProductReservation {
   id        String   @id @default(uuid())
-  tripId    String
+  productId    String
   userId    String
-  trip      Product     @relation(fields: [tripId], references: [id])
+  trip      Product     @relation(fields: [productId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
 }
 
