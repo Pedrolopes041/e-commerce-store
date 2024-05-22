@@ -2,13 +2,13 @@ import { Product } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import ProductItem from "./ProductItem";
 
-const getTrips = async () => {
+const getProducts = async () => {
   const Product = await prisma.product.findMany({});
   return Product;
 };
 
 const RecomendProduct = async () => {
-  const data = await getTrips();
+  const data = await getProducts();
 
   return (
     <div className="mt-7">

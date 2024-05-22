@@ -22,7 +22,7 @@ const UserReservationItem = ({
   const router = useRouter();
 
   const handleDeleteClick = async () => {
-    const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
+    const res = await fetch(`/api/products/reservation/${reservation.id}`, {
       method: "DELETE",
     });
 

@@ -1,5 +1,8 @@
+"use client";
+
 import Button from "@/components/Button";
-import { Product } from "@prisma/client";
+import { Product, ProductReservation } from "@prisma/client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
 import { toast } from "react-toastify";
@@ -9,18 +12,14 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
-  /*
+  const { data } = useSession();
   const handleBuyClick = async () => {
-    const res = await fetch("/api/trips/reservation", {
+    const res = await fetch("/api/products/reservation", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
-          tripId: params.tripId,
-          startDate: searchParams.get("startDate"),
-          endDate: searchParams.get("endDate"),
-          guests: Number(searchParams.get("guests")),
+          productId: product.id,
           userId: (data?.user as any)?.id!,
-          totalPaid: totalPrice,
         })
       ),
     });
@@ -34,11 +33,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
     toast.success("Reserva realizada com sucesso!", {
       position: "bottom-center",
     });
-
-    //router.push("/");
   };
-
-  */
 
   return (
     <div className="flex flex-col">
@@ -59,7 +54,9 @@ const ProductItem = ({ product }: ProductItemProps) => {
         <ReactCountryFlag svg countryCode={product.countryCode} />
         <p className="text-xs text-grayPrimary">{product.location}</p>
       </div>
-      <Button variant="primary">Comprar</Button>
+      <Button onClick={handleBuyClick} variant="primary">
+        Comprar
+      </Button>
     </div>
   );
 };
