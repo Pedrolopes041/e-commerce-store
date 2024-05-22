@@ -21,7 +21,6 @@ const UserReservationItem = ({
 
   const router = useRouter();
 
-  /*
   const handleDeleteClick = async () => {
     const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
       method: "DELETE",
@@ -37,7 +36,6 @@ const UserReservationItem = ({
 
     fetcheReservation();
   };
-  */
 
   return (
     <div>
@@ -66,7 +64,7 @@ const UserReservationItem = ({
             </div>
           </div>
         </div>
-        <Button variant="danger" className="mt-5">
+        <Button onClick={handleDeleteClick} variant="danger" className="mt-5">
           Cancelar
         </Button>
       </div>

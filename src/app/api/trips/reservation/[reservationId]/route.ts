@@ -14,18 +14,7 @@ export async function DELETE(
     );
   }
 
-  /*
-  if (!reservationId) {
-    return {
-      status: 400,
-      body: {
-        message: "Missing reservationId",
-      },
-    };
-  }
-  */
-
-  const reservation = await prisma.tripReservation.delete({
+  const reservation = await prisma.productReservation.delete({
     where: {
       id: reservationId,
     },

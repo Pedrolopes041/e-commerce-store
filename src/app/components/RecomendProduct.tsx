@@ -14,7 +14,7 @@ const RecomendProduct = async () => {
     <div className="mt-7">
       <div className="flex items-center">
         <div className="w-full h-[1px] bg-grayLighter"></div>
-        <h2 className="px-5 font-medium text-grayPrimary whitespace-nowrap lg:text-lg">
+        <h2 className="px-5 font-medium text-primary whitespace-nowrap lg:text-lg">
           Encontre seu Produto
         </h2>
         <div className="w-full h-[1px] bg-grayLighter"></div>

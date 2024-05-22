@@ -18,23 +18,12 @@ export async function GET(
     );
   }
 
-  /*
-  if (!userId) {
-    return {
-      status: 400,
-      body: {
-        message: "Missing userId",
-      },
-    };
-  }
-  */
-
-  const reservations = await prisma.tripReservation.findMany({
+  const reservations = await prisma.productReservation.findMany({
     where: {
       userId: userId,
     },
     include: {
-      trip: true,
+      product: true,
     },
   });
 
