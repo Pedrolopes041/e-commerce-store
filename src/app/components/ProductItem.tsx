@@ -1,10 +1,12 @@
 "use client";
 
 import Button from "@/components/Button";
-import { Product, ProductReservation } from "@prisma/client";
-import { useSession } from "next-auth/react";
+import { Product } from "@prisma/client";
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import ReactCountryFlag from "react-country-flag";
+import { BounceLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
 interface ProductItemProps {
@@ -12,7 +14,9 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
-  const { data } = useSession();
+  const { data, status } = useSession();
+  const route = useRouter();
+
   const handleBuyClick = async () => {
     const res = await fetch("/api/products/reservation", {
       method: "POST",
@@ -24,15 +28,18 @@ const ProductItem = ({ product }: ProductItemProps) => {
       ),
     });
 
-    if (!res.ok) {
-      return toast.error("Ocorreu um erro ao realizar a reserva!", {
+    if (status === "authenticated") {
+      toast.success("Produto adicionado ao carrinho com sucesso!", {
         position: "bottom-center",
       });
+    } else {
+      toast.error("É necessário estar logado!", {
+        position: "bottom-center",
+      });
+      setTimeout(() => {
+        signIn("google");
+      }, 2000);
     }
-
-    toast.success("Reserva realizada com sucesso!", {
-      position: "bottom-center",
-    });
   };
 
   return (

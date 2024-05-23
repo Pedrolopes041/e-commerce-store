@@ -27,10 +27,10 @@ const UserReservationItem = ({
     });
 
     if (!res.ok) {
-      return toast.error("Ocorreu um erro ao cancelar a reserva!");
+      return toast.error("Ocorreu um erro ao cancelar o produto!");
     }
 
-    toast.success("Reserva cancelada com sucesso!", {
+    toast.success("Produto cancelado com sucesso!", {
       position: "bottom-center",
     });
 
