@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-yarn dev
+npm run dev 
 
 <h3>💻 &nbsp;Front-end:</h3>
 
